@@ -1,9 +1,10 @@
 package Algorithm.BinarySearch;
 
-public class Test153_FindMinimumInRotatedSortedArray {
-	// method 1:
-	// use while (l <= r)
-	public int findMinI(int[] nums) {
+public class Test154_FindMinimumInRotatedSortedArrayII {
+	// method 1: use while (l <= r)
+	// TC: O(n) for worst case, [1, 1, 1, 1] all same values
+	// SC: O(1)
+	public int findMin(int[] nums) {
 		int l = 0, r = nums.length - 1;
 		int min = nums[0];
 		while (l <= r) {
@@ -23,8 +24,11 @@ public class Test153_FindMinimumInRotatedSortedArray {
 			// go left cases can be summarized to
 			if (nums[mid] < nums[r]) {
 				r = mid - 1;	// go left
-			} else {
+			} else if (nums[mid] > nums[r]) {
 				l = mid + 1;	// go right
+			} else {	// nums[mid] = nums[r], can not be sure to go left or right
+				// one thing for sure is nums[r] is already checked
+				r--;			// shrink search space by 1
 			}
 		}
 		return min;
@@ -34,17 +38,17 @@ public class Test153_FindMinimumInRotatedSortedArray {
 	// use while (l < r - 1)
 	public int findMinII(int[] nums) {
 		int l = 0, r = nums.length - 1;
-
 		while (l < r - 1) {
 			int mid = l + (r - l)/2;
 			// go left cases can be summarized to
 			if (nums[mid] < nums[r]) {
 				r = mid;	// go left, but mid can be candidates, not rule it out
-			} else {
+			} else if (nums[mid] > nums[r]){
 				l = mid;	// go left, but mid can be candidates, not rule it out
+			} else {
+				r--;		// can not go left or right, only shrink right boundary
 			}
 		}
 		return Math.min(nums[l], nums[r]);
 	}
-
 }
