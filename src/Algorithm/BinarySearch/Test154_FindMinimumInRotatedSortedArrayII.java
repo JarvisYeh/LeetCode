@@ -21,9 +21,11 @@ public class Test154_FindMinimumInRotatedSortedArrayII {
 
 			min = Math.min(min, nums[mid]);
 			// if (nums[l] < nums[r] || (nums[l] > nums[r] && nums[mid] < nums[r])) {
-			// go left cases can be summarized to
+			// => go left cases can be summarized to
 			if (nums[mid] < nums[r]) {
 				r = mid - 1;	// go left
+			// } else if (nums[l] > nums[r] && nums[mid] > nums[r]) {
+			// => go right case can be summarized to
 			} else if (nums[mid] > nums[r]) {
 				l = mid + 1;	// go right
 			} else {	// nums[mid] = nums[r], can not be sure to go left or right
