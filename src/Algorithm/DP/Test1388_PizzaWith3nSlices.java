@@ -14,7 +14,7 @@ public class Test1388_PizzaWith3nSlices {
 	}
 
 	private int findMaxSize(int[] slices) {
-		// sizes[i][j] represetns the max sizes of choosing j slices among first i slices
+		// sizes[i][j] represents the max sizes of choosing j slices among first i slices
 		int[][] sizes = new int[slices.length + 1][(slices.length + 1)/3 + 1];
 		for (int i = 1; i < sizes.length; i++) {
 			for (int j = 1; j < sizes[0].length; j++) {
