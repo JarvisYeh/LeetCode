@@ -94,7 +94,7 @@ public class Test33_SearchInRotatedSortedArray {
 		return -1;
 	}
 
-	// method 2:
+	// method 3:
 	// cases discussion w.r.t. position of mid
 	public int searchIII(int[] nums, int target) {
 		int l = 0, r = nums.length - 1;
