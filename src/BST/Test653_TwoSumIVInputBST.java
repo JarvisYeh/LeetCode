@@ -13,7 +13,7 @@ public class Test653_TwoSumIVInputBST {
 	// sum(n1.key, n2.key) == k
 	// traverse bst and use hashmap
 	// TC: O(n)
-	// SC: O(n)
+	// SC: O(2*height), two O(height) stacks
 	public boolean findTargetI(TreeNode root, int k) {
 		HashSet<Integer> set = new HashSet<>();
 		return inOrder(root, set, k);
