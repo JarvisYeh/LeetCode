@@ -1,4 +1,4 @@
-package BST;
+package Algorithm.BST;
 
 public class Test96_UniqueBinarySearchTrees {
 	// DP

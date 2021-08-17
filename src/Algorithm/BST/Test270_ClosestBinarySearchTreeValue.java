@@ -1,4 +1,4 @@
-package BST;
+package Algorithm.BST;
 
 import util.ListNode;
 import util.TreeNode;
