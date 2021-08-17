@@ -10,25 +10,23 @@ public class Test416_PartitionEqualSubsetSum {
 		for (int i : nums) {
 			sum += i;
 		}
-		boolean[] found = {false};
-		dfsI(nums, 0, currSum, sum, found);
-		return found[0];
+		return dfsI(nums, 0, currSum, sum);
 	}
 
-	private void dfsI(int[] nums, int index, int currSum, int sum, boolean[] found) {
+	private boolean dfsI(int[] nums, int index, int currSum, int sum) {
 		// base case
 		if (index == nums.length) {
 			if (currSum*2 == sum) {
-				found[0] = true;
+				return true;
 			}
-			return;
+			return false;
 		}
 
 		// current level
 		if (currSum*2 < sum) {
-			dfsI(nums, index + 1, currSum + nums[index], sum, found);
+			if (dfsI(nums, index + 1, currSum + nums[index], sum)) return true;
 		}
-		dfsI(nums, index + 1, currSum, sum, found);
+		return dfsI(nums, index + 1, currSum, sum);
 	}
 
 
@@ -42,10 +40,10 @@ public class Test416_PartitionEqualSubsetSum {
 
 		// DP[i][j]: first i numbers [0, i) can be sum to j
 		boolean[][] DP = new boolean[nums.length + 1][sum/2 + 1];
-		// first i nums can be sum up tp 0
+		// first i nums can be summed up tp 0 (i.e. choose 0 of them)
 		for (int i = 0; i <= nums.length; i++) DP[i][0] = true;
 		for (int i = 1; i <= nums.length; i++) {
-			// first i numbers, [0, i), actually consider nums[i - 1]
+			// first i numbers, nums[0, i), so the new considered num is nums[i - 1]
 			int num = nums[i - 1];
 			for (int j = 0; j <= sum/2; j++) {
 				if (num == j || DP[i - 1][j]) {
@@ -59,7 +57,7 @@ public class Test416_PartitionEqualSubsetSum {
 	}
 
 	// DP: knapsack problem - optimize space
-	// for previous DP solution, note that all true in DP[i-1][] will still be true in DP[i][]
+	// for previous DP solution, note that all true in DP[i-1][*] will still be true in DP[i][*]
 	// 这是因为前i-1个数能达成的sum一定也是前i个数能达成的sum（只要不选第i个数即可）
 	// 所以只需要保留一行即可，每次更新这一行DP
 	// TC: O(n * sum)
@@ -71,7 +69,7 @@ public class Test416_PartitionEqualSubsetSum {
 
 		// DP[j]: numbers can sum to j
 		boolean[] DP = new boolean[sum/2 + 1];
-		// {0} can be sum up tp 0
+		// {0} can be summed up tp 0
 		DP[0] = true;
 		for (int i = 1; i <= nums.length; i++) {
 			// for first i numbers [0, i) subset, actually consider nums[i - 1]
@@ -86,12 +84,13 @@ public class Test416_PartitionEqualSubsetSum {
 				}
 			}
 		}
+		StringBuilder sb = new StringBuilder();
 		return DP[sum/2];
 	}
 
 
 	public static void main(String[] args) {
 		Test416_PartitionEqualSubsetSum t = new Test416_PartitionEqualSubsetSum();
-		t.canPartitionIII(new int[]{1,5,11,5});
+		System.out.println(t.canPartitionIII(new int[]{1,5,11,5}));
 	}
 }
