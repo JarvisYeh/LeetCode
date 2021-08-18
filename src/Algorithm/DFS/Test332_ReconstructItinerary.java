@@ -3,7 +3,7 @@ package Algorithm.DFS;
 import java.util.*;
 
 public class Test332_ReconstructItinerary {
-	// method 1: all permutation with boolean array
+	// Method 1: all permutation with boolean array
 	public List<String> findItineraryI(List<List<String>> tickets) {
 		List<String> res = new ArrayList<>();
 		// sort tickets first so that DFS process in accordance with lexical order
@@ -48,7 +48,7 @@ public class Test332_ReconstructItinerary {
 	}
 
 
-	// method 2: all permutation with hashmap
+	// Method 2: all permutation with hashmap
 	public List<String> findItineraryII(List<List<String>> tickets) {
 		HashMap<String, List<String>> map = new HashMap<>();
 		for (List<String> ticket : tickets) {
@@ -93,7 +93,7 @@ public class Test332_ReconstructItinerary {
 		return false;
 	}
 
-	// method 3: find Eulerian path
+	// Method 3: find Eulerian path
 	// TC: O(E)
 	// SC: O(V + E) for hashMap and queue
 	public List<String> findItineraryIII(List<List<String>> tickets) {

@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Test305_NumberofIslandsII {
-	// method 1: add-hoc
+	// Method 1: add-hoc
 	// len(ops) = L, meaning at most L islands
 	// TC: O(L^2) each operation will flip at most all island, in total L operations
 	// SC: O(m*n + L) for the grid and hashset
@@ -69,7 +69,7 @@ public class Test305_NumberofIslandsII {
 		flip(i, j - 1, grid, idx);
 	}
 
-	// method 2: union find
+	// Method 2: union find
 	// flatten 2d matrix into 1d array, and regard each node as separate cell
 	// TC: O(m*n + L), m*n for Arrays.fill(), L for loop
 	// SC: O(m*n)

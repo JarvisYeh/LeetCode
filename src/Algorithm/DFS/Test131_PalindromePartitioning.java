@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Test131_PalindromePartitioning {
-	// method 1: DFS
+	// Method 1: DFS
 	// TC: O(n*2^n) 每个node check left segment is palindrome
 	// SC: O(n)
 	// every node the remaining left to check substring is s[start:len(s)]
@@ -42,7 +42,7 @@ public class Test131_PalindromePartitioning {
 		return true;
 	}
 
-	// method 2: DFS + DP
+	// Method 2: DFS + DP
 	// TC: O(2^n), time of checking if it's palindrome is O(1)
 	// SC: O(n^2)
 	// [start, end] is the reversed to be checked segment

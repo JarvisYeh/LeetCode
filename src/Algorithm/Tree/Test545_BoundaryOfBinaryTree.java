@@ -11,7 +11,7 @@ public class Test545_BoundaryOfBinaryTree {
 	// need to associate every leaf with idx
 	// therefore here all traversal use dfs
 
-	// method 1: 2 pass - one for left, right boundary, one for leaf
+	// Method 1: 2 pass - one for left, right boundary, one for leaf
 	public List<Integer> boundaryOfBinaryTree(TreeNode root) {
 		if (root == null) return new ArrayList<>();
 		if (root.left == null && root.right == null) return Arrays.asList(root.key);

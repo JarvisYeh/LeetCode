@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Test99_RecoverBinarySearchTree {
-	// method 1: recursion
+	// Method 1: recursion
 	public void recoverTree(TreeNode root) {
 		TreeNode[] misNodes = new TreeNode[2];
 		TreeNode[] prev = {new TreeNode(Integer.MIN_VALUE)};
@@ -43,7 +43,7 @@ public class Test99_RecoverBinarySearchTree {
 	}
 
 
-	// method 2: iteration
+	// Method 2: iteration
 	public void recover(TreeNode root) {
 		Deque<TreeNode> stack = new ArrayDeque<>();
 		while (root != null) {

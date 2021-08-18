@@ -1,7 +1,7 @@
 package Algorithm.BinarySearch;
 
 public class Test33_SearchInRotatedSortedArray {
-	// method 1:
+	// Method 1:
 	// cases discussion w.r.t. has/not has rotation
 	public int searchI(int[] nums, int target) {
 		if (nums == null || nums.length == 0) return -1;
@@ -56,7 +56,7 @@ public class Test33_SearchInRotatedSortedArray {
 	}
 
 
-	// method 2:
+	// Method 2:
 	// cases discussion w.r.t. target, mid in/not in same side
 	public int searchII(int[] nums, int target) {
 		int l = 0, r = nums.length - 1;
@@ -94,7 +94,7 @@ public class Test33_SearchInRotatedSortedArray {
 		return -1;
 	}
 
-	// method 3:
+	// Method 3:
 	// cases discussion w.r.t. position of mid
 	public int searchIII(int[] nums, int target) {
 		int l = 0, r = nums.length - 1;
@@ -133,7 +133,7 @@ public class Test33_SearchInRotatedSortedArray {
 		return -1;
 	}
 
-	// method 4:
+	// Method 4:
 	// find pivot then do ordinal binary search for the specific side
 	public int searchIV(int[] nums, int target) {
 		int l = 0, r = nums.length - 1;

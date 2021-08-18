@@ -88,7 +88,7 @@ public class Test261_GraphValidTree {
 		return generateCount == n;
 	}
 
-	// method 3: union find
+	// Method 3: union find
 	// find(i) has amortized O(1) time complexity
 	// one call of find(node x), all ascendant node of x are resolved
 	// union(a, b) is O(1)

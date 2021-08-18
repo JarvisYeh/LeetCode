@@ -3,7 +3,7 @@ package Algorithm.Graph;
 import java.util.*;
 
 public class Test323_NumberofConnectedComponentsinanUndirectedGraph {
-	// method 1:
+	// Method 1:
 	// union find
 	// TC: O(E*1)
 	// SC: O(V)
@@ -34,7 +34,7 @@ public class Test323_NumberofConnectedComponentsinanUndirectedGraph {
 		return clusters[node];
 	}
 
-	// method 2:
+	// Method 2:
 	// DFS
 	// TC: O(V + E)
 	// SC: O(V + E) for hashMap represent graph
@@ -70,7 +70,7 @@ public class Test323_NumberofConnectedComponentsinanUndirectedGraph {
 	}
 
 
-	// method 3:
+	// Method 3:
 	// BFS
 	// TC: O(V + E)
 	// SC: O(V + E) for hashMap represent graph

@@ -1,7 +1,7 @@
 package Algorithm.BinarySearch;
 
 public class Test153_FindMinimumInRotatedSortedArray {
-	// method 1:
+	// Method 1:
 	// use while (l <= r)
 	public int findMinI(int[] nums) {
 		int l = 0, r = nums.length - 1;
@@ -30,7 +30,7 @@ public class Test153_FindMinimumInRotatedSortedArray {
 		return min;
 	}
 
-	// method 2:
+	// Method 2:
 	// use while (l < r - 1)
 	public int findMinII(int[] nums) {
 		int l = 0, r = nums.length - 1;

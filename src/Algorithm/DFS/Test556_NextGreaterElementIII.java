@@ -3,7 +3,7 @@ package Algorithm.DFS;
 import java.util.Arrays;
 
 public class Test556_NextGreaterElementIII {
-	// method 1: DFS permutation
+	// Method 1: DFS permutation
 	// TC: O(n!*n)
 	// SC: O(n)
 	public int nextGreaterElementI(int n) {

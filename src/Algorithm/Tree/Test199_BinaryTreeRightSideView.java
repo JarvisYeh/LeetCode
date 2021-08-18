@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class Test199_BinaryTreeRightSideView {
-	// method 1:
+	// Method 1:
 	// level order traversal and store the last node in each level
 	// TC: O(n)
 	// SC: O(n)
@@ -28,7 +28,7 @@ public class Test199_BinaryTreeRightSideView {
 		return res;
 	}
 
-	// method 2:
+	// Method 2:
 	// dfs
 	// TC: O(n)
 	// SC: O(h)

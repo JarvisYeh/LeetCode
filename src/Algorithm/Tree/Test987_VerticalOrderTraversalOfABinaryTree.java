@@ -42,7 +42,7 @@ public class Test987_VerticalOrderTraversalOfABinaryTree {
 	}
 
 
-	// method 2: BFS
+	// Method 2: BFS
 	public List<List<Integer>> verticalTraversalII(TreeNode root) {
 		List<List<Integer>> res = new ArrayList<>();
 		if (root == null) return res;

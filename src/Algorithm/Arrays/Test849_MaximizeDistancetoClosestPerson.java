@@ -38,7 +38,7 @@ public class Test849_MaximizeDistancetoClosestPerson {
 		return max;
 	}
 
-	// method 1: two pointers one pass
+	// Method 1: two pointers one pass
 	// TC: O(n)
 	// SC: O(1)
 	public int maxDistToClosestII(int[] seats) {
