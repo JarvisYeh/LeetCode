@@ -1,6 +1,9 @@
 package Algorithm.DP;
 
 public class Test5_LongestPalindromicSubstring {
+	// Method 1: DP
+	// TC: O(n^2)
+	// SC: O(n^2)
 	public String longestPalindromeI(String s) {
 		int n = s.length();
 		// isPalindrome[i][j] means whether s[i, j] is a palindrome
@@ -27,11 +30,14 @@ public class Test5_LongestPalindromicSubstring {
 		return s.substring(left, right + 1);
 	}
 
+	// Method 2: 1 pass
+	// TC: O(n^2)
+	// SC: O(1)
 	public String longestPalindromeII(String s) {
 		int n = s.length();
 		int max = 1, left = 0, right = 0;
 		for (int i = 0; i < n; i++) {
-			// for odd solution
+			// for odd length solution
 			int start = i, end = i;
 			while (start >= 0 && end < n && s.charAt(start) == s.charAt(end)) {
 				start--;
@@ -42,7 +48,7 @@ public class Test5_LongestPalindromicSubstring {
 				left = start + 1;
 				right = end - 1;
 			}
-			// for even solution
+			// for even length solution
 			start = i;
 			end = i + 1;
 			while (start >= 0 && end < n && s.charAt(start) == s.charAt(end)) {
