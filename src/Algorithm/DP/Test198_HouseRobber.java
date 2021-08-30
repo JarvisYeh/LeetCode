@@ -14,7 +14,7 @@ public class Test198_HouseRobber {
 			} else {
 				// case1: robbed from i-th house
 				// if (i-1)th house is not robbed
-				// 		case 1 => rob = max[i - 1] + nums[i] = max[i - 2] + arr[i]
+				// 		case 1 => rob = max[i - 1] + nums[i] = max[i - 2] + 0 + nums[i]
 				// if (i-1)th house is robbed, can not use max[i - 1]
 				// 		case 1 => rob = max[i - 2] + arr[i]
 				int rob = max[i - 2] + nums[i];
