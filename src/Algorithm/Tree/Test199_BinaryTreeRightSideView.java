@@ -39,6 +39,7 @@ public class Test199_BinaryTreeRightSideView {
 	}
 
 	// dfs with anti-pre-order
+	// make sure the right most node in each level will be the first one being traversed
 	// curr - right - left
 	private void dfs(TreeNode root, int depth, List<Integer> rightView) {
 		if (root == null) return;
