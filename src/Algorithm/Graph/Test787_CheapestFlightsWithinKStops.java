@@ -16,14 +16,15 @@ public class Test787_CheapestFlightsWithinKStops {
 			flightsMap.putIfAbsent(f[0], new ArrayList<>());
 			flightsMap.get(f[0]).add(new int[]{f[1], f[2]});
 		}
-		dfs(src, dst, flightsMap, 0, minPrice, k);
+		// k stops can go (1(start) + 1(end) + stops) locations
+		dfs(src, dst, flightsMap, 0, minPrice, k + 2);
 		return minPrice[0] == Integer.MAX_VALUE ? -1 : minPrice[0];
 	}
 
 	private void dfs(int curr, int dst,
 					 HashMap<Integer, List<int[]>> flightsMap,
 					 int currPrice, int[] minPrice, int remain) {
-		if (remain < 0) return;
+		if (remain <= 0) return;
 		if (curr == dst) {
 			minPrice[0] = Math.min(minPrice[0], currPrice);
 			return;

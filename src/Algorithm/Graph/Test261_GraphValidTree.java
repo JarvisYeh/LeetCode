@@ -32,7 +32,7 @@ public class Test261_GraphValidTree {
 	}
 
 	private boolean hasCycle(int node, int parent, List<List<Integer>> graph, boolean[] visited, int[] count) {
-		// visit a node that is visited before, retunr true dirctly
+		// visit a node that is visited before, return true directly
 		if (visited[node]) return true;
 
 		// traverse that node
