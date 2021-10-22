@@ -23,7 +23,7 @@ public class Test32_LongestValidParentheses {
 		}
 
 		// now what left in stack are the indexes of brackets that are not valid
-		// the range between two invlid indexes are valid range
+		// the range between two invalid indexes are valid range
 		// the indexes from stack[top -> bottom] is [large index -> small index]
 		int rangeEnd = s.length();
 		int max = 0;

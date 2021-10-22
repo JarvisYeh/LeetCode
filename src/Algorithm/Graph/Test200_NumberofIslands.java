@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Test200_NumberofIslands {
-	// dfs
+	// Method 1: dfs
 	// TC: O(m*n)
 	// SC: O(m/n) in stack
 	public int numIslandsI(char[][] grid) {
@@ -35,7 +35,7 @@ public class Test200_NumberofIslands {
 		}
 	}
 
-	// bfs
+	// Method 2: bfs
 	// TC: O(m*n)
 	// SC: O(m*n) easy to reach memory limit
 	public int numIslandsII(char[][] grid) {
@@ -71,5 +71,75 @@ public class Test200_NumberofIslands {
 			this.i = i;
 			this.j = j;
 		}
+	}
+
+	// Method 3: use union find
+	public int numIslandsIII(char[][] grid) {
+		int m = grid.length, n = grid[0].length;
+		int[] parent = new int[m*n];
+		int[] rank = new int[m*n];
+		int count = 0;
+
+		// flatten the 2d grid into 1d array
+		// initially all single cell = '1' is an island
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (grid[i][j] == '1') {
+					parent[i*n + j] = i*n + j;
+					rank[i*n + j] = 1;
+					count++;
+				}
+			}
+		}
+
+		// merge island with 4 direction neighbors if possible
+		int[][] dirs = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (grid[i][j] == '0') continue;
+				for (int[] dir : dirs) {
+					int newI = i + dir[0];
+					int newJ = j + dir[1];
+					if (newI < 0 || newI >= m || newJ < 0 || newJ >= n) continue;
+					if (grid[newI][newJ] == '0') continue;
+					// if merge successfully, number of island decrease by 1
+					if (union(i, j, newI, newJ, parent, rank, n)) count--;
+				}
+			}
+		}
+		return count;
+	}
+
+	// return true if merge successful
+	// return false elsewhere
+	private boolean union(int a, int b, int i, int j, int[] parent, int[] rank, int n) {
+		int root1 = find(a*n + b, parent);
+		int root2 = find(i*n + j, parent);
+		// (a, b) and (i, j) are in same clusters, no need to merge
+		// return false
+		if (root1 == root2) return false;
+
+		// parent[small rank root] = large rank root
+		if (rank[root1] > rank[root2]) {
+			parent[root2] = root1;
+		} else if (rank[root1] < rank[root2]) {
+			parent[root1] = root2;
+		} else {    // same rank
+			parent[root2] = root1;
+			// update rank
+			rank[root1]++;
+		}
+		return true;
+	}
+
+	// find root of cell i with path compression
+	private int find(int i, int[] parent) {
+		if (parent[i] != i) parent[i] = find(parent[i], parent);
+		return parent[i];
+	}
+
+	public static void main(String[] args) {
+		Test200_NumberofIslands t = new Test200_NumberofIslands();
+		t.numIslandsIII(new char[][]{{'1','1','1'},{'0','1','0'},{'1','1','1'}});
 	}
 }

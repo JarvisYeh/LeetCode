@@ -89,9 +89,9 @@ public class Test261_GraphValidTree {
 	}
 
 	// Method 3: union find
-	// find(i) has amortized O(1) time complexity
+	// find(i) has amortized O(\alpha(n)) time complexity
 	// one call of find(node x), all ascendant node of x are resolved
-	// union(a, b) is O(1)
+	// union(a, b) is O(\alpha(n))
 	// TC: O(E + V)
 	// SC: O(V)
 	public boolean validTreeIII(int n, int[][] edges) {

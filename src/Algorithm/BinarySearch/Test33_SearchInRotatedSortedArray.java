@@ -102,12 +102,15 @@ public class Test33_SearchInRotatedSortedArray {
 			int mid = l + (r - l) / 2;
 			// [l, mid] monotonically increase
 			if (nums[mid] >= nums[l]) {
+				// if target is to the left of mid, go left
 				// l target mid | r => go left
+				// l target mid r   => go left
 				if (target >= nums[l] && target <= nums[mid]) {
 					r = mid;
 				}
 				// l mid target | r => go right
 				// l mid | target r => go right
+				// l mid target r  => go right
 				else {
 					l = mid;
 				}
@@ -115,11 +118,13 @@ public class Test33_SearchInRotatedSortedArray {
 			// [mid, r] monotonically increase
 			else {
 				// l | mid target r => go right
+				// l mid target r => go right
 				if (target >= nums[mid] && target <= nums[r]) {
 					l = mid;
 				}
 				// l target | mid r => go left
 				// l | target mid r => go left
+				// l target mid r => go left
 				else {
 					r = mid;
 				}
