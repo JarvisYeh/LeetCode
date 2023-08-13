@@ -25,9 +25,6 @@ public class Test04_NumberIn2DArray {
 				return true;
 			}
 		}
-		char[] a = new char[]{'a'};
-		a.clone();
-		String s;
 		return false;
 	}
 }
