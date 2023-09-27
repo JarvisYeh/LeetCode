@@ -48,7 +48,6 @@ public class Test305_NumberofIslandsII {
 			// if neighbor has more than 1 islands, merge (i, j) and those islands into one island
 			else {
 				count -= (neiIdxs.size() - 1);
-				grid[i][j] = neiIdxs.iterator().next();
 				flip(i, j, grid, idx++);
 			}
 
